@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import "./loginReg.css";
 export const OtherLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,17 +35,20 @@ export const OtherLogin = () => {
   return (
     <>
       <h6>Std/faculty login</h6>
-      <div>
+      <div className="login_div">
         <input
           type="text"
           onChange={(e) => setUsername(e.target.value)}
           placeholder="username"
         />
+        <br />
         <input
           type="text"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="pass"
         />
+        <br />
+
         <button
           onClick={() => {
             run();
@@ -52,8 +56,10 @@ export const OtherLogin = () => {
         >
           Login
         </button>
+        <div>
+          <Link to="/adminlogin">Admin login</Link>
+        </div>
       </div>
-      <Link to="/adminlogin">Admin login</Link>
     </>
   );
 };
