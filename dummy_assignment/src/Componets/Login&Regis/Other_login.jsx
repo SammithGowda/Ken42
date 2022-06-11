@@ -28,28 +28,34 @@ export const OtherLogin = () => {
           window.location.href = "/home";
         } else {
           alert(res.message);
+          setPassword("");
+          setUsername("");
         }
       })
       .catch((er) => console.log(er));
   };
+
   return (
     <>
-      <h6>Std/faculty login</h6>
+      <h2>Std/faculty login</h2>
       <div className="login_div">
         <input
           type="text"
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="username"
+          placeholder="Enter Username"
+          value={username}
         />
         <br />
         <input
           type="text"
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="pass"
+          placeholder="Enter Password"
+          value={password}
         />
         <br />
 
         <button
+          disabled={!username || !password}
           onClick={() => {
             run();
           }}
@@ -57,7 +63,18 @@ export const OtherLogin = () => {
           Login
         </button>
         <div>
-          <Link to="/adminlogin">Admin login</Link>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/register"
+          >
+            Don't have Account ?
+          </Link>
+          <Link
+            style={{ float: "right", color: "black", textDecoration: "none" }}
+            to="/adminlogin"
+          >
+            Admin login
+          </Link>
         </div>
       </div>
     </>

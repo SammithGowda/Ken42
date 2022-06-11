@@ -18,14 +18,15 @@ export const AdminLogin = () => {
   };
   return (
     <>
-      <h6>Admin login</h6>
-      <div>
+      <h2>Admin login</h2>
+      <div className="login_div">
         <input
           onChange={(e) => {
             setUsername(e.target.value);
           }}
           type="text"
           placeholder="Uername"
+          value={username}
         />
         <input
           onChange={(e) => {
@@ -33,10 +34,13 @@ export const AdminLogin = () => {
           }}
           type="text"
           placeholder="Password"
+          value={password}
         />
         <button
           onClick={() => {
             run();
+            setUsername("");
+            setPassword("");
           }}
         >
           Login

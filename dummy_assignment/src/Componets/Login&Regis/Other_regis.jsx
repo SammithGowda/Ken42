@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 export const UserRegister = () => {
+  const navigate = useNavigate();
   const [formdata, setFormdata] = useState({
     name: "",
     username: "",
@@ -30,6 +32,8 @@ export const UserRegister = () => {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        // window.location.href = "/";
+        navigate("/");
       })
       .catch((er) => console.log(er));
     // axios
